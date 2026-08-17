@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ONE BASIQ® | Administração</title>
+<link rel="stylesheet" href="/assets/admin.css">
+</head>
+<body>
+<div id="loginScreen" class="admin-login"><div class="login-card"><img src="/assets/one-basiq-logo.png" alt="ONE BASIQ"><h1>Painel administrativo</h1><form id="adminLogin"><input id="adminEmail" type="email" placeholder="E-mail" required><input id="adminPassword" type="password" placeholder="Senha" required><button>ENTRAR</button></form><p id="adminError"></p></div></div>
+<div id="adminApp" class="admin-app hidden">
+<aside class="sidebar"><div class="side-logo"><img src="/assets/one-basiq-logo.png" alt="ONE BASIQ"></div><nav><button data-view="dashboard" class="active">Dashboard</button><button data-view="orders">Pedidos</button><button data-view="products">Produtos</button><button data-view="customers">Clientes</button><button data-view="payments">Pagamentos</button></nav><button id="adminLogout" class="logout">SAIR</button></aside>
+<main class="main"><header class="admin-header"><div><span>ONE BASIQ®</span><h1 id="viewTitle">Dashboard</h1></div><a href="/" target="_blank">Abrir loja</a></header><section id="view-dashboard" class="view active"><div class="metrics"><div><span>Vendas aprovadas</span><strong id="metricSales">R$ 0,00</strong></div><div><span>Pedidos</span><strong id="metricOrders">0</strong></div><div><span>Clientes</span><strong id="metricCustomers">0</strong></div><div><span>Produtos ativos</span><strong id="metricProducts">0</strong></div></div><div class="panel"><h2>Fluxo operacional</h2><div class="flow"><span>Cliente</span><b>→</b><span>Pedido</span><b>→</b><span>Pagamento</span><b>→</b><span>Separação</span><b>→</b><span>Envio</span><b>→</b><span>Entrega</span></div></div></section>
+<section id="view-orders" class="view"><div class="panel"><div class="panel-head"><h2>Pedidos</h2><button onclick="loadOrders()">Atualizar</button></div><div class="table-wrap"><table><thead><tr><th>Pedido</th><th>Cliente</th><th>Total</th><th>Pagamento</th><th>Status</th><th>Data</th></tr></thead><tbody id="ordersTable"></tbody></table></div></div></section>
+<section id="view-products" class="view"><div class="panel"><div class="panel-head"><h2>Produtos</h2><button id="newProduct">NOVO PRODUTO</button></div><div id="productForm" class="product-form hidden"><input id="pId" type="hidden"><input id="pSku" placeholder="SKU"><input id="pName" placeholder="Nome"><input id="pColor" placeholder="Cor"><input id="pCategory" placeholder="Categoria"><input id="pPrice" type="number" step="0.01" placeholder="Preço"><input id="pStock" type="number" placeholder="Estoque"><input id="pImage" placeholder="URL da imagem"><input id="pUrl" placeholder="URL do produto"><textarea id="pDescription" placeholder="Descrição"></textarea><input id="pSizes" placeholder="Tamanhos separados por vírgula"><div><button id="saveProduct">SALVAR</button><button id="cancelProduct">CANCELAR</button></div></div><div class="table-wrap"><table><thead><tr><th>Imagem</th><th>Produto</th><th>Cor</th><th>Preço</th><th>Estoque</th><th>Ações</th></tr></thead><tbody id="productsTable"></tbody></table></div></div></section>
+<section id="view-customers" class="view"><div class="panel"><div class="panel-head"><h2>Clientes</h2><button onclick="loadCustomers()">Atualizar</button></div><div class="table-wrap"><table><thead><tr><th>Nome</th><th>E-mail</th><th>Telefone</th><th>Status</th><th>Ação</th></tr></thead><tbody id="customersTable"></tbody></table></div></div></section>
+<section id="view-payments" class="view"><div class="panel"><h2>Pagamentos</h2><p>O painel acompanha o status recebido do Mercado Pago pelo webhook. PIX, cartão e boleto são processados no ambiente seguro do provedor.</p><div class="payment-grid"><div><strong>PIX</strong><span>Disponível pelo checkout Mercado Pago</span></div><div><strong>Cartão</strong><span>Crédito e débito conforme disponibilidade</span></div><div><strong>Boleto</strong><span>Disponível conforme elegibilidade da transação</span></div></div></div></section>
+</main></div>
+<script src="/admin.js"></script>
+</body>
+</html>

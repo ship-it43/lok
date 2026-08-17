@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: onebasiq
+      POSTGRES_USER: onebasiq
+      POSTGRES_PASSWORD: onebasiq
+    ports:
+      - "5432:5432"
+    volumes:
+      - onebasiq_pgdata:/var/lib/postgresql/data
+volumes:
+  onebasiq_pgdata:

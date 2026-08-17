@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="ONE BASIQ — Essentials for everyday.">
+<title>ONE BASIQ®</title>
+<link rel="stylesheet" href="/assets/store.css">
+</head>
+<body>
+<div class="topbar"><span>Cartão em até 3x sem juros</span><span>Frete grátis acima de R$ 499</span><span>Pagamento seguro</span></div>
+<header class="header">
+<button class="menu-toggle" id="menuToggle">☰</button>
+<a class="brand" href="/"><img src="/assets/one-basiq-logo.png" alt="ONE BASIQ"></a>
+<nav class="nav" id="nav">
+<a href="#inicio">HOME</a><a href="#masculina">MASCULINA</a><a href="#regatas">REGATAS</a><a href="#moletom">MOLETOM</a><a href="#moletom-canguru">CANGURU</a>
+</nav>
+<div class="header-actions">
+<button id="accountButton" aria-label="Conta">♙</button>
+<button id="cartButton" aria-label="Carrinho">🛒<b class="cart-count" id="cartCount">0</b></button>
+</div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+<div class="hero-content">
+<p>ONE BASIQ®</p>
+<h1>Essentials<br>for everyday.</h1>
+<a href="#masculina" class="button">VER COLEÇÃO</a>
+</div>
+</section>
+
+<section class="intro">
+<p>ESSENTIALS</p>
+<h2>O básico que define o seu estilo.</h2>
+</section>
+
+<section class="products-section" id="masculina">
+<div class="section-heading"><span>01</span><div><p>MASCULINA</p><h2>Marble Line</h2></div></div>
+<div class="products-grid" id="masculinaGrid"></div>
+</section>
+
+<section class="category-banner"><div><p>REGATAS</p><h2>Over Heavy</h2><a href="#regatas" class="button">VER REGATAS</a></div></section>
+
+<section class="products-section" id="regatas">
+<div class="section-heading"><span>02</span><div><p>REGATAS</p><h2>Regata Over Heavy Básica</h2></div></div>
+<div class="products-grid" id="regatasGrid"></div>
+</section>
+
+<section class="products-section" id="moletom">
+<div class="section-heading"><span>03</span><div><p>MOLETOM</p><h2>Moletom Liso 3 Cabos Básico</h2></div></div>
+<div class="products-grid" id="moletomGrid"></div>
+</section>
+
+<section class="products-section" id="moletom-canguru">
+<div class="section-heading"><span>04</span><div><p>CANGURU</p><h2>Moletom Canguru Streetwear 3 Cabos Básico</h2></div></div>
+<div class="products-grid" id="canguruGrid"></div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="footer-brand"><img src="/assets/one-basiq-logo.png" alt="ONE BASIQ"><p>Essentials for everyday.</p></div>
+<div><h3>ATENDIMENTO</h3><p>Segunda a sexta</p><p>08:00 às 18:00</p></div>
+<div><h3>COMPRA</h3><p>Trocas e devoluções</p><p>Política de privacidade</p></div>
+<div><h3>ADMINISTRAÇÃO</h3><a href="/admin">Painel administrativo</a></div>
+</footer>
+
+<div class="modal" id="productModal"><div class="modal-box large"><button class="close" data-close="productModal">×</button><div class="product-modal"><div><img id="modalImage" class="modal-image" alt=""></div><div class="product-info"><p id="modalCategory" class="eyebrow"></p><h2 id="modalName"></h2><strong id="modalPrice"></strong><p id="modalColor"></p><div><span class="label">Produto desta seção</span><div id="modalProducts" class="selector-grid"></div></div><div><span class="label">Tamanho</span><div id="modalSizes" class="selector-grid"></div></div><div id="modalDescription" class="description"></div><div id="modalMeasurements"></div><div class="quantity-row"><button id="qtyMinus">−</button><input id="qty" type="number" min="1" max="20" value="1"><button id="qtyPlus">+</button></div><button id="addCart" class="primary">ADICIONAR AO CARRINHO</button><a id="productUrl" class="secondary hidden" target="_blank" rel="noopener">VER PRODUTO</a></div></div></div></div>
+
+<div class="modal" id="cartModal"><div class="modal-box"><button class="close" data-close="cartModal">×</button><h2>Seu carrinho</h2><div id="cartContent"></div></div></div>
+
+<div class="modal" id="accountModal"><div class="modal-box"><button class="close" data-close="accountModal">×</button><h2>Área do cliente</h2><div class="tabs"><button class="tab active" data-auth-tab="login">Entrar</button><button class="tab" data-auth-tab="register">Criar conta</button></div><form id="loginForm" class="auth-form"><input id="loginEmail" type="email" placeholder="E-mail" required><input id="loginPassword" type="password" placeholder="Senha" required><button class="primary">ENTRAR</button></form><form id="registerForm" class="auth-form hidden"><input id="registerName" placeholder="Nome completo" required><input id="registerEmail" type="email" placeholder="E-mail" required><input id="registerPassword" type="password" placeholder="Senha com 8 caracteres" minlength="8" required><input id="registerCpf" placeholder="CPF"><input id="registerPhone" placeholder="Telefone"><button class="primary">CRIAR CONTA</button></form><div id="accountState"></div></div></div>
+
+<div class="modal" id="checkoutModal"><div class="modal-box large"><button class="close" data-close="checkoutModal">×</button><h2>Finalizar compra</h2><form id="checkoutForm" class="checkout-grid"><div><h3>Dados</h3><input id="checkoutName" placeholder="Nome completo" required><input id="checkoutEmail" type="email" placeholder="E-mail" required><input id="checkoutCpf" placeholder="CPF" required><input id="checkoutPhone" placeholder="Telefone"><h3>Endereço</h3><input id="zip" placeholder="CEP" required><input id="street" placeholder="Rua" required><input id="number" placeholder="Número" required><input id="complement" placeholder="Complemento"><input id="neighborhood" placeholder="Bairro" required><input id="city" placeholder="Cidade" required><input id="state" placeholder="UF" maxlength="2" required></div><div><h3>Pagamento</h3><label class="payment-card"><input type="radio" name="paymentMethod" value="mercado_pago" checked><span><b>Mercado Pago</b><small>PIX, cartão e boleto no checkout seguro</small></span></label><div class="checkout-summary" id="checkoutSummary"></div><button class="primary" type="submit">IR PARA PAGAMENTO</button><p class="small">O pagamento é processado no ambiente seguro do Mercado Pago. Os dados do cartão não ficam armazenados pela ONE BASIQ.</p></div></form></div></div>
+
+<div class="toast" id="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>
